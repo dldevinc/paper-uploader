@@ -1,7 +1,7 @@
 /* global gettext */
 
 import EventEmitter from "wolfy87-eventemitter";
-import { Dropzone } from "./dropzone.js";
+import { Dropzone } from "./dropzone_fixed.js";
 
 /**
  * Обертка над dropzone.js, абстрагирующая от конкретной библиотеки.

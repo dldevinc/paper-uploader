@@ -10,8 +10,7 @@ module.exports = {
         publicPath: "/",
         filename: "[name].js",
         library: "Uploader",
-        libraryTarget: "umd",
-        libraryExport: "default"
+        libraryTarget: "umd"
     },
     module: {
         rules: [

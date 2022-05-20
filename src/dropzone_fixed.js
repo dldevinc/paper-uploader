@@ -1,7 +1,7 @@
 /* global gettext */
 /* global interpolate */
 
-import Dropzone from "dropzone";
+import { Dropzone } from "dropzone";
 
 // Отмена автоматической инициализации на .dropzone элементах.
 Dropzone.autoDiscover = false;
