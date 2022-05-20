@@ -49,8 +49,7 @@ import { Dropzone } from "./dropzone.js";
  *      Format: function(file, response) {}
  *
  *      Событие успешной загрузки файла.
- *      Загрузка считается успешной, когда сервер ответил статусом 200
- *      и JSON-ответ содержит "success: true".
+ *      Загрузка считается успешной, когда сервер ответил статусом 200.
  *
  *   7. all_complete
  *      Format: function() {}
@@ -75,7 +74,7 @@ class Uploader extends EventEmitter {
         filters: [], // strings or functions
         autoStart: true,
 
-        root: null,
+        container: document.body,
         button: null,
         dropzone: null,
         dropzoneActiveClassName: "highlighted"
@@ -93,8 +92,8 @@ class Uploader extends EventEmitter {
             throw new Error("No URL provided.");
         }
 
-        if (!this.config.root) {
-            throw new Error("Root element required.");
+        if (!this.config.container) {
+            throw new Error("Container element required.");
         }
 
         this.init();
@@ -109,11 +108,8 @@ class Uploader extends EventEmitter {
             throw new Error("FileUploader is already initialized.");
         }
 
-        const options = this._getPluginOptions(this.config.root);
+        const options = this._getPluginOptions();
         this._instance = new Dropzone(this.config.dropzone, options);
-
-        // store instance
-        this.config.root.uploader = this;
     }
 
     destroy() {
@@ -121,8 +117,6 @@ class Uploader extends EventEmitter {
             this._instance.destroy();
             this._instance = null;
         }
-
-        this.config.root.uploader = null;
     }
 
     getUUID(file) {
@@ -151,10 +145,10 @@ class Uploader extends EventEmitter {
         this.instance.removeAllFiles(true);
     }
 
-    _getPluginOptions(root) {
+    _getPluginOptions() {
         let headers = {};
         if (typeof this.config.headers === "function") {
-            headers = Object.assign(headers, this.config.headers(root));
+            headers = Object.assign(headers, this.config.headers());
         } else if (typeof this.config.headers === "object") {
             headers = Object.assign(headers, this.config.headers);
         } else {
@@ -198,7 +192,7 @@ class Uploader extends EventEmitter {
 
             clickable: this.config.button,
             createImageThumbnails: false,
-            hiddenInputContainer: root,
+            hiddenInputContainer: this.config.container,
 
             dictMaxFilesExceeded: gettext("You can not upload any more files."),
             dictResponseError: gettext("Server responded with {{statusCode}} code."),
