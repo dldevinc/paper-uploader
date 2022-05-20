@@ -1,0 +1,35 @@
+{
+    "name": "paper-uploader",
+    "version": "0.0.2",
+    "description": "A file upload wrapper for paper-uploads based on dropzone.js",
+    "main": "./dist/bundle.js",
+    "scripts": {
+        "build": "webpack --mode production",
+        "build:dev": "webpack --mode development --watch",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/dldevinc/paper-uploader.git"
+    },
+    "author": {
+        "name": "Mihail Mishakin",
+        "email": "x896321475@gmail.com"
+    },
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/dldevinc/paper-uploader/issues"
+    },
+    "homepage": "https://github.com/dldevinc/paper-uploader#readme",
+    "devDependencies": {
+        "@babel/core": "^7.18.0",
+        "@babel/preset-env": "^7.18.0",
+        "babel-loader": "^8.2.5",
+        "dropzone": "^6.0.0-beta.2",
+        "prettier": "^2.6.2",
+        "terser-webpack-plugin": "^5.3.1",
+        "webpack": "^5.72.1",
+        "webpack-cli": "^4.9.2",
+        "wolfy87-eventemitter": "^5.2.9"
+    }
+}

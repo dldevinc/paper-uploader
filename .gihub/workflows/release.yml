@@ -1,0 +1,30 @@
+name: CI
+on:
+  push:
+    branches:
+      - master
+      - "v*.[0-9]"
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: "Install node & npm"
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18.x
+
+      - name: "Install repository dependencies"
+        run: npm ci
+
+      - name: "Check code style"
+        run: find . -type f \( -iname \*.js -o -iname \*.jsx -o -iname \*.ts -o -iname \*.tsx \) | grep -v node_modules | grep -v /dist/ | xargs ./node_modules/.bin/prettier --check
+
+      - name: "Publish"
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        working-directory: ./lib
+        run: npm publish

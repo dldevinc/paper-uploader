@@ -1,0 +1,4 @@
+dist/
+*.yml
+package-lock.json
+README.md
