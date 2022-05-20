@@ -1,6 +1,6 @@
 {
     "name": "paper-uploader",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "A file upload wrapper for paper-uploads based on dropzone.js",
     "main": "./dist/bundle.js",
     "scripts": {
