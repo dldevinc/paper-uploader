@@ -69,12 +69,7 @@ const uploader = new Uploader({
     // DOM-элемент, в область которого можно перемещать файлы 
     // для их загрузки.
     // Default: null
-    dropzone: null,
-    
-    // CSS-класс, добавляемый элементу dropzone, когда файлы находятся
-    // над элементом.
-    // Default: highlighted
-    dropzoneActiveClassName: "highlighted"
+    dropzone: null
 });
 ```
 

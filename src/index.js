@@ -76,8 +76,7 @@ class Uploader extends EventEmitter {
 
         container: document.body,
         button: null,
-        dropzone: null,
-        dropzoneActiveClassName: "highlighted"
+        dropzone: null
     };
 
     constructor(options) {
@@ -218,21 +217,6 @@ class Uploader extends EventEmitter {
                     return finalParams;
                 }
             }.bind(this),
-
-            dragenter() {
-                _this.config.dropzone && _this.config.dropzone.classList.add(_this.config.dropzoneActiveClassName);
-            },
-
-            dragleave(event) {
-                if (_this.config.dropzone && !_this.config.dropzone.contains(event.relatedTarget)) {
-                    _this.config.dropzone &&
-                        _this.config.dropzone.classList.remove(_this.config.dropzoneActiveClassName);
-                }
-            },
-
-            drop() {
-                _this.config.dropzone && _this.config.dropzone.classList.remove(_this.config.dropzoneActiveClassName);
-            },
 
             accept(file, done) {
                 // Предотвращаем вызов события submitted при ошибке валидации,
