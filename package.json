@@ -22,8 +22,8 @@
     },
     "homepage": "https://github.com/dldevinc/paper-uploader#readme",
     "devDependencies": {
-        "@babel/core": "^7.18.0",
-        "@babel/preset-env": "^7.18.0",
+        "@babel/core": "^7.18.2",
+        "@babel/preset-env": "^7.18.2",
         "babel-loader": "^8.2.5",
         "dropzone": "^6.0.0-beta.2",
         "prettier": "^2.6.2",
