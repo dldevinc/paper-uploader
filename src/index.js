@@ -123,6 +123,10 @@ class Uploader extends EventEmitter {
         return file.upload.uuid;
     }
 
+    addFile(file) {
+        this._instance.addFile(file);
+    }
+
     cancel(file) {
         if (typeof file === "string") {
             let uuid = file;
