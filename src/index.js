@@ -65,8 +65,10 @@ import { Dropzone } from "./dropzone_fixed.js";
  */
 class Uploader extends EventEmitter {
     static Defaults = {
+        dropzone: null,
         url: null,
         uploadMultiple: false,
+        paramName: "file",
         maxFilesize: null,
         chunkSize: 2 * 1024 * 1024,
         params: null,
@@ -76,7 +78,6 @@ class Uploader extends EventEmitter {
 
         container: document.body,
         button: null,
-        dropzone: null
     };
 
     constructor(options) {
@@ -180,6 +181,7 @@ class Uploader extends EventEmitter {
             url: this.config.url,
             headers: headers,
             uploadMultiple: false,
+            paramName: this.config.paramName,
             maxFiles: this.config.uploadMultiple ? null : 1,
             maxFilesize: this.config.maxFilesize,
             acceptedFiles: acceptedFiles && acceptedFiles.length ? acceptedFiles.join(",") : null,

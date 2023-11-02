@@ -10,22 +10,31 @@ import { Uploader } from "paper-uploader";
 
 
 const uploader = new Uploader({
+    // DOM-элемент, в область которого можно перемещать файлы 
+    // для их загрузки.
+    // Required. Default: null
+    dropzone: null,
+
     // URL, на который будут отправляться загружаемые файлы. 
     // Required.
     url: "",
-    
+
     // Максимальный размер chunk при разбиении больших файлов. 
     // Default: 2 * 1024 * 1024
     chunkSize: 2 * 1024 * 1024,
-    
+
     // Разрешает загружать несколько файлов разом, аналогично
     // атрибуту multiple тэга <input type="file">.
     // Default: false
     uploadMultiple: true,
-    
+
+    // Имя параметра, через который передаётся файл.
+    // Default: "file"
+    paramName: "file",
+
     // Максимально допустимый размер файла в байтах
     maxFilesize: null,
-    
+
     // Объект (или функция, возвращающая объект), содержащий
     // данные, которые будут отправлены с каждым запросом.
     // Default: null
@@ -39,7 +48,7 @@ const uploader = new Uploader({
     headers: {
         "X-Author-Name": "Jim"
     },
-    
+
     // Строки или функции, предназначенные для фильтрации добавляемых файлов.
     // Default: []
     filters: [
@@ -64,12 +73,7 @@ const uploader = new Uploader({
     // DOM-элемент (или CSS-селектор), при клике на который вызывается 
     // окно выбора файла.
     // Default: false
-    button: false,
-
-    // DOM-элемент, в область которого можно перемещать файлы 
-    // для их загрузки.
-    // Default: null
-    dropzone: null
+    button: false
 });
 ```
 
